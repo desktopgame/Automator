@@ -28,6 +28,8 @@ def main(log):
         fn, ext = os.path.splitext(file)
         if len(ext) == 0:
             continue
+        if not os.path.isfile(os.path.join(parent, file)) and not ext == '.app':
+            continue
         log(file)
         ext = ext.replace('.', '_')
         to_dir = os.path.join(parent, ext)
